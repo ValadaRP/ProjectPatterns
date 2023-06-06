@@ -22,23 +22,22 @@
  * SOFTWARE.
  */
 
-package cwiczenia.builder.geekific.model;
+package cwiczenia.decorator.geekific.decorators;
 
-public interface Builder {
+import cwiczenia.decorator.geekific.INotifier;
 
+public class WhatsAppDecorator extends BaseNotifierDecorator {
 
-    Builder id(int id);
+    public WhatsAppDecorator(INotifier wrapped) {
+        super(wrapped);
+    }
 
-    Builder brand(String brand);
-
-    Builder model(String model);
-
-    Builder color(String color);
-
-    Builder height(int height);
-
-    Builder engine(String engine);
-
-    Builder nbrOfDoors(int nbrOfDoors) ;
+    @Override
+    public void send(String msg) {
+        super.send(msg);
+        String phoneNbr = databaseService.getPhoneNbrFromUsername(getUsername());
+        System.out.println("Sending " + msg + " by WhatsApp on " + phoneNbr);
+    }
 
 }
+

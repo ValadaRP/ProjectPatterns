@@ -22,23 +22,32 @@
  * SOFTWARE.
  */
 
-package cwiczenia.builder.geekific.model;
+package cwiczenia.prototype.geekific;
 
-public interface Builder {
+import lombok.Getter;
+import lombok.ToString;
 
+@Getter
+@ToString
+public abstract class Vehicle {
 
-    Builder id(int id);
+    private final String brand;
+    private final String model;
+    private final String color;
 
-    Builder brand(String brand);
+    public Vehicle(String brand, String model, String color) {
+        this.brand = brand;
+        this.model = model;
+        this.color = color;
+    }
 
-    Builder model(String model);
+    protected Vehicle(Vehicle vehicle) {
+        this.brand = vehicle.brand;
+        this.model = vehicle.model;
+        this.color = vehicle.color;
+    }
 
-    Builder color(String color);
-
-    Builder height(int height);
-
-    Builder engine(String engine);
-
-    Builder nbrOfDoors(int nbrOfDoors) ;
+    public abstract Vehicle clone();
 
 }
+

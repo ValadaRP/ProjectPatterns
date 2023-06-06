@@ -1,5 +1,7 @@
 package cwiczenia.metoda_wytworcza.kalkulator;
 
+import cwiczenia.metoda_wytworcza.kalkulator.products.Operation;
+
 public class Main {
     public static void main(String[] args){
         Calcualtor calcualtor = new Calcualtor();

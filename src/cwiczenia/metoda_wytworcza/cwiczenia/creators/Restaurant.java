@@ -1,4 +1,6 @@
-package cwiczenia.metoda_wytworcza.cwiczenia;
+package cwiczenia.metoda_wytworcza.cwiczenia.creators;
+
+import cwiczenia.metoda_wytworcza.cwiczenia.product.Burger;
 
 public abstract class Restaurant {
 

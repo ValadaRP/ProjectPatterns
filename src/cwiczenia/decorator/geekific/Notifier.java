@@ -22,23 +22,28 @@
  * SOFTWARE.
  */
 
-package cwiczenia.builder.geekific.model;
+package cwiczenia.decorator.geekific;
 
-public interface Builder {
+public class Notifier implements INotifier {
 
+    private final String username;
+    private final DatabaseService databaseService;
 
-    Builder id(int id);
+    public Notifier(String username) {
+        this.username = username;
+        databaseService = new DatabaseService();
+    }
 
-    Builder brand(String brand);
+    @Override
+    public void send(String msg) {
+        String mail = databaseService.getMailFromUsername(username);
+        System.out.println("Sending " + msg + " by Mail to " + mail);
+    }
 
-    Builder model(String model);
-
-    Builder color(String color);
-
-    Builder height(int height);
-
-    Builder engine(String engine);
-
-    Builder nbrOfDoors(int nbrOfDoors) ;
+    @Override
+    public String getUsername() {
+        return username;
+    }
 
 }
+

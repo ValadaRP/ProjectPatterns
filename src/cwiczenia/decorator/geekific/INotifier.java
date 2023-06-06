@@ -22,23 +22,13 @@
  * SOFTWARE.
  */
 
-package cwiczenia.builder.geekific.model;
+package cwiczenia.decorator.geekific;
 
-public interface Builder {
+public interface INotifier {
 
+    void send(String message);
 
-    Builder id(int id);
-
-    Builder brand(String brand);
-
-    Builder model(String model);
-
-    Builder color(String color);
-
-    Builder height(int height);
-
-    Builder engine(String engine);
-
-    Builder nbrOfDoors(int nbrOfDoors) ;
+    String getUsername();
 
 }
+

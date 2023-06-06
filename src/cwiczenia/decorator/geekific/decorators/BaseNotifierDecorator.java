@@ -22,23 +22,30 @@
  * SOFTWARE.
  */
 
-package cwiczenia.builder.geekific.model;
+package cwiczenia.decorator.geekific.decorators;
 
-public interface Builder {
+import cwiczenia.decorator.geekific.DatabaseService;
+import cwiczenia.decorator.geekific.INotifier;
 
+public abstract class BaseNotifierDecorator implements INotifier {
 
-    Builder id(int id);
+    private final INotifier wrapped;
+    protected final DatabaseService databaseService;
 
-    Builder brand(String brand);
+    BaseNotifierDecorator(INotifier wrapped) {
+        this.wrapped = wrapped;
+        databaseService = new DatabaseService();
+    }
 
-    Builder model(String model);
+    @Override
+    public void send(String msg) {
+        wrapped.send(msg);
+    }
 
-    Builder color(String color);
-
-    Builder height(int height);
-
-    Builder engine(String engine);
-
-    Builder nbrOfDoors(int nbrOfDoors) ;
+    @Override
+    public String getUsername() {
+        return wrapped.getUsername();
+    }
 
 }
+

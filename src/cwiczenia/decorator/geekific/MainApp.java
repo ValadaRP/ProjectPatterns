@@ -22,23 +22,26 @@
  * SOFTWARE.
  */
 
-package cwiczenia.builder.geekific.model;
+package cwiczenia.decorator.geekific;
 
-public interface Builder {
+import cwiczenia.decorator.geekific.decorators.FacebookDecorator;
+import cwiczenia.decorator.geekific.decorators.WhatsAppDecorator;
 
+public class MainApp {
 
-    Builder id(int id);
+    /*
+     * Video Reference: https://youtu.be/v6tpISNjHf8
+     */
+    public static void main(String[] args) {
 
-    Builder brand(String brand);
+        INotifier notifyAll = new FacebookDecorator(new WhatsAppDecorator(new Notifier("Geekific")));
+        notifyAll.send("Like and Subscribe!!!");
 
-    Builder model(String model);
+        System.out.println("==========================================");
 
-    Builder color(String color);
+        INotifier notifyFbMail = new FacebookDecorator(new Notifier("Geekific"));
+        notifyFbMail.send("Like and Subscribe!!!");
 
-    Builder height(int height);
-
-    Builder engine(String engine);
-
-    Builder nbrOfDoors(int nbrOfDoors) ;
+    }
 
 }

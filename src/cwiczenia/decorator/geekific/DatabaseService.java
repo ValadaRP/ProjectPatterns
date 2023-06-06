@@ -22,23 +22,21 @@
  * SOFTWARE.
  */
 
-package cwiczenia.builder.geekific.model;
+package cwiczenia.decorator.geekific;
 
-public interface Builder {
+public class DatabaseService {
 
+    public String getMailFromUsername(String username) {
+        return username + "@Mail";
+    }
 
-    Builder id(int id);
+    public String getPhoneNbrFromUsername(String username) {
+        return username + "@Phone";
+    }
 
-    Builder brand(String brand);
-
-    Builder model(String model);
-
-    Builder color(String color);
-
-    Builder height(int height);
-
-    Builder engine(String engine);
-
-    Builder nbrOfDoors(int nbrOfDoors) ;
+    public String getFBNameFromUsername(String username) {
+        return username + "@Facebook";
+    }
 
 }
+

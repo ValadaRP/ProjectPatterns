@@ -1,5 +1,7 @@
 package cwiczenia.metoda_wytworcza.kalkulator;
 
+import cwiczenia.metoda_wytworcza.kalkulator.products.Operation;
+
 public class Calcualtor {
     private Operation operation;
     public void setOperation(Operation operation){

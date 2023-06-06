@@ -22,23 +22,20 @@
  * SOFTWARE.
  */
 
-package cwiczenia.builder.geekific.model;
+package cwiczenia.singleton.geekific;
 
-public interface Builder {
+public class MainApp {
 
+    /*
+     * Video Reference: https://youtu.be/tSZn4wkBIu8
+     */
+    public static void main(String[] args) {
 
-    Builder id(int id);
+        System.out.println(Singleton.getInstance("Geekific"));
+        Singleton singleton = Singleton.getInstance("Singleton");
+        System.out.println(singleton);
+        System.out.println(singleton.getData());
 
-    Builder brand(String brand);
-
-    Builder model(String model);
-
-    Builder color(String color);
-
-    Builder height(int height);
-
-    Builder engine(String engine);
-
-    Builder nbrOfDoors(int nbrOfDoors) ;
+    }
 
 }

@@ -22,23 +22,36 @@
  * SOFTWARE.
  */
 
-package cwiczenia.builder.geekific.model;
+package cwiczenia.prototype.geekific;
 
-public interface Builder {
+import java.util.ArrayList;
+import java.util.List;
 
+public class MainApp {
 
-    Builder id(int id);
+    /*
+     * Video Reference: https://youtu.be/DcFhITC9v0E
+     */
+    public static void main(String[] args) {
 
-    Builder brand(String brand);
+        List<Vehicle> vehicles = List.of(
+                new Car("car_brand", "car_model", "car_color", 300),
+                new Bus("bus_brand", "bus_model", "bus_color", 8)
+        );
 
-    Builder model(String model);
+        List<Vehicle> copyList = new ArrayList<>();
+        for (Vehicle vehicle : vehicles) {
+            copyList.add(vehicle.clone());
+        }
 
-    Builder color(String color);
+        copyList.forEach(System.out::println);
 
-    Builder height(int height);
+        System.out.println("==========================================");
 
-    Builder engine(String engine);
+        VehicleCache registry = new VehicleCache();
+        registry.put(vehicles);
+        System.out.println(registry.get("car_brand car_model"));
 
-    Builder nbrOfDoors(int nbrOfDoors) ;
+    }
 
 }

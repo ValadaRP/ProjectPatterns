@@ -22,23 +22,33 @@
  * SOFTWARE.
  */
 
-package cwiczenia.builder.geekific.model;
+package cwiczenia.singleton.geekific;
 
-public interface Builder {
+public class Singleton {
 
+    private final String data;
 
-    Builder id(int id);
+    private static volatile Singleton instance;
 
-    Builder brand(String brand);
+    private Singleton(String data) {
+        this.data = data;
+    }
 
-    Builder model(String model);
+    public static Singleton getInstance(String data) {
+        Singleton result = instance;
+        if (result == null) {
+            synchronized (Singleton.class) {
+                result = instance;
+                if (result == null) {
+                    instance = result = new Singleton(data);
+                }
+            }
+        }
+        return result;
+    }
 
-    Builder color(String color);
-
-    Builder height(int height);
-
-    Builder engine(String engine);
-
-    Builder nbrOfDoors(int nbrOfDoors) ;
+    public String getData() {
+        return data;
+    }
 
 }

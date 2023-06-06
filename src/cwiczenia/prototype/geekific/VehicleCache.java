@@ -22,23 +22,30 @@
  * SOFTWARE.
  */
 
-package cwiczenia.builder.geekific.model;
+package cwiczenia.prototype.geekific;
 
-public interface Builder {
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
+public class VehicleCache {
 
-    Builder id(int id);
+    private final Map<String, Vehicle> cache = new HashMap<>();
 
-    Builder brand(String brand);
+    public VehicleCache() {
+        Car car = new Car("Bugatti", "Chiron", "Blue", 261);
+        Bus bus = new Bus("Mercedes", "Setra", "White", 48);
 
-    Builder model(String model);
+        cache.put("Bugatti Chiron", car);
+        cache.put("Mercedes Setra", bus);
+    }
 
-    Builder color(String color);
+    public Vehicle get(String key) {
+        return cache.get(key).clone();
+    }
 
-    Builder height(int height);
-
-    Builder engine(String engine);
-
-    Builder nbrOfDoors(int nbrOfDoors) ;
+    public void put(List<Vehicle> vehicles) {
+        vehicles.forEach(vehicle -> cache.put(vehicle.getBrand() + " " + vehicle.getModel(), vehicle));
+    }
 
 }

@@ -22,23 +22,28 @@
  * SOFTWARE.
  */
 
-package cwiczenia.builder.geekific.model;
+package cwiczenia.prototype.geekific;
 
-public interface Builder {
+import lombok.ToString;
 
+@ToString(callSuper = true)
+public class Bus extends Vehicle {
 
-    Builder id(int id);
+    private final int doors;
 
-    Builder brand(String brand);
+    public Bus(String brand, String model, String color, int doors) {
+        super(brand, model, color);
+        this.doors = doors;
+    }
 
-    Builder model(String model);
+    private Bus(Bus bus) {
+        super(bus);
+        this.doors = bus.doors;
+    }
 
-    Builder color(String color);
-
-    Builder height(int height);
-
-    Builder engine(String engine);
-
-    Builder nbrOfDoors(int nbrOfDoors) ;
+    @Override
+    public Bus clone() {
+        return new Bus(this);
+    }
 
 }
