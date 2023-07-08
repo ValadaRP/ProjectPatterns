@@ -39,6 +39,8 @@ public interface Builder {
 
     Builder engine(String engine);
 
-    Builder nbrOfDoors(int nbrOfDoors) ;
+    Builder nbrOfDoors(int nbrOfDoors);
+
+    CarBasic build();
 
 }

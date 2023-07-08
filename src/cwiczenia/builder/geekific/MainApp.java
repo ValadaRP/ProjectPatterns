@@ -33,17 +33,22 @@ public class MainApp {
      */
     public static void main(String[] args) {
 
-        Director director = new Director();
-
-        CarBuilder builder = new CarBuilder();
-        director.buildBugatti(builder);
-        builder.model("Chiron");
-        System.out.println(builder.build());
-
+        CarBuilder carBuilder = new CarBuilder();
         CarSchemaBuilder schemaBuilder = new CarSchemaBuilder();
-        director.buildLambo(schemaBuilder);
-        schemaBuilder.engine("90").nbrOfDoors(3);
-        System.out.println(schemaBuilder.build());
+
+        Director director = new Director(carBuilder);
+
+        CarBasic micra = director.buildMicra("Red", "1.2L", 100);
+        System.out.println(micra);
+
+//        director.buildBugatti(carBuilder);
+//        carBuilder.model("Chiron");
+//        System.out.println(carBuilder.build());
+//
+//
+//        director.buildLambo(schemaBuilder);
+//        schemaBuilder.engine("90").nbrOfDoors(3);
+//        System.out.println(schemaBuilder.build());
 
     }
 

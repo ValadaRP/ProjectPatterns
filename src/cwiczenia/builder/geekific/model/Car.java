@@ -24,7 +24,7 @@
 
 package cwiczenia.builder.geekific.model;
 
-public class Car {
+public class Car extends CarBasic{
 
     private final int id;
     private final int height;

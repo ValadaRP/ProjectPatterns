@@ -28,6 +28,22 @@ import cwiczenia.builder.geekific.model.*;
 
 public class Director {
 
+
+    private Builder builder;
+
+    public Director(Builder builder) {
+        this.builder = builder;
+    }
+
+    public CarBasic buildMicra(String color, String engine, int height){
+        return builder.brand("Nissan")
+                .model("Micra")
+                .color(color)
+                .engine(engine)
+                .height(height).id(1).nbrOfDoors(5)
+                .build();
+    }
+
     public void buildBugatti(Builder builder) {
         builder.brand("Bugatti")
                 .color("Blue")
@@ -42,6 +58,7 @@ public class Director {
                 .color("Yellow")
                 .height(120);
     }
+
 
 }
 
